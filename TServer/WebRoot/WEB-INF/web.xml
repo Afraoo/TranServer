@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>TServer</display-name>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetTeamNum</servlet-name>
+    <servlet-class>com.servlet.GetTeamNum</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getCarNum</servlet-name>
+    <servlet-class>com.servlet.getCarNum</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getText</servlet-name>
+    <servlet-class>com.servlet.getText</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>toStop</servlet-name>
+    <servlet-class>com.servlet.toStop</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getDirect</servlet-name>
+    <servlet-class>com.servlet.getDirect</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getCoordinateByCarId</servlet-name>
+    <servlet-class>com.servlet.getCoordinateByCarId</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getCoordinateGroup</servlet-name>
+    <servlet-class>com.servlet.getCoordinateGroup</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>toSeperate</servlet-name>
+    <servlet-class>com.servlet.toSeperate</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>toAllCar</servlet-name>
+    <servlet-class>com.servlet.toAllCar</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getSpeed</servlet-name>
+    <servlet-class>com.servlet.getSpeed</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getAngle</servlet-name>
+    <servlet-class>com.servlet.getAngle</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getDistance</servlet-name>
+    <servlet-class>com.servlet.getDistance</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>GetTeamNum</servlet-name>
+    <url-pattern>/GetTeamNum</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getCarNum</servlet-name>
+    <url-pattern>/getCarNum</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getText</servlet-name>
+    <url-pattern>/getText</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>toStop</servlet-name>
+    <url-pattern>/toStop</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getDirect</servlet-name>
+    <url-pattern>/getDirect</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getCoordinateByCarId</servlet-name>
+    <url-pattern>/getCoordinateByCarId</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getCoordinateGroup</servlet-name>
+    <url-pattern>/getCoordinateGroup</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>toSeperate</servlet-name>
+    <url-pattern>/toSeperate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>toAllCar</servlet-name>
+    <url-pattern>/toAllCar</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getSpeed</servlet-name>
+    <url-pattern>/getSpeed</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getAngle</servlet-name>
+    <url-pattern>/getAngle</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getDistance</servlet-name>
+    <url-pattern>/getDistance</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

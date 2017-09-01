@@ -1,4 +1,4 @@
-package com.jdbc.dbutils;
+package com.sql;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
@@ -7,14 +7,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import domain.UserInfo;
+import com.entity.CarBasicInfo;
 
-public class JdbcUtils 
+
+import zuojie.esql.Esql;
+
+
+public class JdbcUtils extends BaseDao 
 {
 
 	//定义数据库的用户名
@@ -31,6 +36,8 @@ public class JdbcUtils
 	private PreparedStatement pstmt;
 	//定义查询返回的结果集合
 	private ResultSet resultSet;
+	//数据库操作封装
+	//private Esql esql;
 	
 	public JdbcUtils() 
 	{
@@ -46,6 +53,7 @@ public class JdbcUtils
 		}
 
 	}
+
 	//定义获得数据库的链接
 	public Connection getConnection()
 	{
@@ -53,10 +61,10 @@ public class JdbcUtils
 			connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
 		}catch(Exception e){
 			//TODO:handle exception
+			e.printStackTrace();
 		}
 		return connection;
 	}
-	
 	/**
 	 * 完成对数据库的表的添加、删除和修改的操作
 	 * @param sql
@@ -100,7 +108,7 @@ public class JdbcUtils
 		pstmt = connection.prepareStatement(sql);
 		if(params != null && !params.isEmpty()){
 			for(int i = 0; i<params.size(); i++){
-				pstmt.setObject(index, params.get(i));
+				pstmt.setObject(index++, params.get(i));
 			}
 		}
 		resultSet = pstmt.executeQuery();//返回查询结果
@@ -118,6 +126,7 @@ public class JdbcUtils
 		}
 		return map;		
 	}
+	
 	
 	/**
 	 * 
@@ -258,41 +267,39 @@ public class JdbcUtils
 			}
 		}
 	}
+	
 	/**
 	 * 
-	 * @param args
+	 * 更新小车基本信息表
+	 * 
+	 * @param carInfo
+	 * @throws Exception 
 	 */
-	public static void main(String[] args)
-	{
-		//TODO Auto-generated method stub
-		JdbcUtils jdbcUtils = new JdbcUtils();
-		jdbcUtils.getConnection();
-//		String sql = "insert into car_basic_info(mac_adress,car_num,group_num) values(?,?,?)";
-//		List<Object> params = new ArrayList<Object>();
-//		params.add("0013A200415B69A6");
-//		params.add(1);
-//		params.add(1);
-//		
-//		try{			 
-//			boolean flag = jdbcUtils.updateByPreparedStatement(sql, params);
-//			System.out.println(flag);
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}		
-		String sql = "select * from car_basic_info ";		
-//		List<Object> params = new ArrayList<Object>();
-//		params.add(1);	
-		try {		
-			List<UserInfo> list = jdbcUtils.findMoreRefResult(sql, null, UserInfo.class);
-			System.out.println(list);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			jdbcUtils.releaseConn();
-		}
+	public void updateCarInfo(long carId,CarBasicInfo carInfo) throws Exception 
+	{		
+		String sql = "update car_basic_info set mac_adress=? car_num=? group_id=? create_time=? update_time=? where id=?";
 		
-		
+		esql.update(sql, carInfo.getMac_adress(),carInfo.getCar_num(),carInfo.getGroup_num(),carInfo.getCreateTime(),
+				carInfo.getUpdateTime(),carId);	
 	}
+	
+	/**
+	 * 
+	 * 实现小车基本信息表的数据录入
+	 * 
+	 * @param carInfo
+	 * @return
+	 * @throws Exception
+	 */
+	public long addCarInfo(CarBasicInfo carInfo) throws Exception
+	{
+		String sql = "insert into car_basic_info (mac_adress, car_num, group_id, create_time, update_time) values(?,?,?,?,?,?)";
+		esql.update(sql, carInfo.getMac_adress(),carInfo.getCar_num(),carInfo.getGroup_num(),carInfo.getCreateTime(),
+				carInfo.getUpdateTime());
+		return getGeneratedId("car_basic_info");
+	}
+	
+	
+
 
 }
